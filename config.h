@@ -26,7 +26,7 @@ static const char *colors[][3]      = {
 
 /* tagging */
 //tag names (upper left)
-static const char *tags[] = { "", "", "", "", "",  "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "",  "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -73,11 +73,16 @@ static const char *monitor[] = { "/usr/bin/htop", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 //volume controls
-static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
-static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
-static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+//static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+//static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+//static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+//Volume Controls Wireplumber
+static const char *upvol[] = {"wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL};
+static const char *downvol[] = {"wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL};
+static const char *mutevol[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
 
 #include "shiftview.c"
+static const int mainmon = 0; /* xsetroot will only change the bar on this monitor */
 static char *endx[] = { "/bin/sh", "-c", "endx", "externalpipe", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -113,6 +118,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_l,      shiftview,  	   { .i = +1 } },
 	{ MODKEY|ShiftMask, 		XK_h,      shiftview,      { .i = -1 } },
     { MODKEY,                       XK_F8,     spawn,          {.v = upvol   } },
+//    { MODKEY,                       XK_AudioVolumeUp,     spawn,          {.v = upvol   } },
     { MODKEY,                       XK_F7,     spawn,          {.v = downvol } },
     { MODKEY,                       XK_F5,     spawn,          {.v = mutevol } },
 	TAGKEYS(                        XK_1,                      0)
