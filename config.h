@@ -84,8 +84,8 @@ static const char *mutevol[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "t
 //Control cmus Music player
 //You'll first need to add the selectet Playlist to the remote player with -cmus-remote PATH_TO_PLAYLIST-
 static const char *pausecmus[] = {"cmus-remote", "-u", NULL};
-//static const char *nextcmus[] = {"cmus-remote", "-u", NULL};
-//static const char *prevcmus[] = {"cmus-remote", "-u", NULL};
+static const char *nextcmus[] = {"cmus-remote", "-n", NULL};
+static const char *prevcmus[] = {"cmus-remote", "-r", NULL};
 
 #include "shiftview.c"
 static const int mainmon = 0; /* xsetroot will only change the bar on this monitor */
@@ -127,7 +127,9 @@ static Key keys[] = {
 //    { MODKEY,                       XK_AudioVolumeUp,     spawn,          {.v = upvol   } },
     { MODKEY,                       XK_F7,     spawn,          {.v = downvol } },
     { MODKEY,                       XK_F5,     spawn,          {.v = mutevol } },
-    { MODKEY|ShiftMask,                       XK_F8,     spawn,          {.v = pausecmus   } },
+    { MODKEY|ShiftMask,                       XK_F5,     spawn,          {.v = pausecmus   } },
+    { MODKEY|ShiftMask,                       XK_F7,     spawn,          {.v = prevcmus   } },
+    { MODKEY|ShiftMask,                       XK_F8,     spawn,          {.v = nextcmus   } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
