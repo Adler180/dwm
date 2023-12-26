@@ -88,6 +88,9 @@ static const char *pausecmus[] = {"cmus-remote", "-u", NULL};
 static const char *nextcmus[] = {"cmus-remote", "-n", NULL};
 static const char *prevcmus[] = {"cmus-remote", "-r", NULL};
 
+//Take screenshot with shotgun into ~/Pictures/Screenshots
+static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots$(date '+%Y%m%d%H%M%S')", NULL};
+
 #include "shiftview.c"
 static const int mainmon = 0; /* xsetroot will only change the bar on this monitor */
 static char *endx[] = { "/bin/sh", "-c", "endx", "externalpipe", NULL };
@@ -131,6 +134,7 @@ static Key keys[] = {
     { MODKEY,                       XK_F8,     spawn,          {.v = pausecmus   } },
     { MODKEY,                       XK_F7,     spawn,          {.v = prevcmus   } },
     { MODKEY,                       XK_F9,     spawn,          {.v = nextcmus   } },
+    { MODKEY,                       XK_Print,     spawn,          {.v = sshot } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
