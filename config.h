@@ -73,7 +73,7 @@ static const char *monitor[] = { "/usr/bin/htop", NULL };
 //sets urxvt as the default terminal
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
-static const char *suspendcmd[] = { "slock", "&&", "systemctl", "suspend", NULL };
+static const char *suspendcmd[] = { "slock", "systemctl", "suspend", NULL };
 //volume controls
 //static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 //static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
