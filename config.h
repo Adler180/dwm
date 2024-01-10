@@ -73,6 +73,7 @@ static const char *monitor[] = { "/usr/bin/htop", NULL };
 //sets urxvt as the default terminal
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
+static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
 //volume controls
 //static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 //static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
@@ -89,7 +90,9 @@ static const char *nextcmus[] = {"cmus-remote", "-n", NULL};
 static const char *prevcmus[] = {"cmus-remote", "-r", NULL};
 
 //Take screenshot with shotgun into ~/Pictures/Screenshots
-static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots$(date '+%Y%m%d%H%M%S')", NULL};
+//static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots$(date", "'+%Y%m%H%M')", NULL};
+static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots/test", NULL};
+//static const char *sshot[] = {"shotgun", "/tmp/Screenshots/$(date '+%Y')", NULL};
 
 #include "shiftview.c"
 static const int mainmon = 0; /* xsetroot will only change the bar on this monitor */
@@ -99,6 +102,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY, 			XK_u, 		spawn, 		{.v = lockcmd } },
+	{ MODKEY|ShiftMask,		XK_u, 		spawn, 		{.v = suspendcmd } },
 	{ MODKEY,                       XK_t,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
