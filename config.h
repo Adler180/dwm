@@ -91,7 +91,7 @@ static const char *prevcmus[] = {"cmus-remote", "-r", NULL};
 
 //Take screenshot with shotgun into ~/Pictures/Screenshots
 //static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots$(date", "'+%Y%m%H%M')", NULL};
-static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots/test", NULL};
+static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots/", NULL};
 //static const char *sshot[] = {"shotgun", "/tmp/Screenshots/$(date '+%Y')", NULL};
 
 #include "shiftview.c"
