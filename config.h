@@ -89,10 +89,14 @@ static const char *pausecmus[] = {"cmus-remote", "-u", NULL};
 static const char *nextcmus[] = {"cmus-remote", "-n", NULL};
 static const char *prevcmus[] = {"cmus-remote", "-r", NULL};
 
+//Reload xmodmap
+static const char *xmodmapreload[] = {"xmodmap", "~/.Xmodmap", NULL};
+
 //Take screenshot with shotgun into ~/Pictures/Screenshots
+//static const char* home_dir = getenv("HOME");
 //static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots$(date", "'+%Y%m%H%M')", NULL};
-static const char *sshot[] = {"shotgun", "~/Pictures/Screenshots/", NULL};
-//static const char *sshot[] = {"shotgun", "/tmp/Screenshots/$(date '+%Y')", NULL};
+//static const char *sshot[] = {"shotgun", home_dir"/Pictures/Screenshots/", NULL};
+static const char *sshot[] = {"shotgun", "/tmp/Screenshots/$(date '+%Y')", NULL};
 
 #include "shiftview.c"
 static const int mainmon = 0; /* xsetroot will only change the bar on this monitor */
@@ -139,6 +143,7 @@ static Key keys[] = {
     { MODKEY,                       XK_F7,     spawn,          {.v = prevcmus   } },
     { MODKEY,                       XK_F9,     spawn,          {.v = nextcmus   } },
     { MODKEY,                       XK_Print,     spawn,          {.v = sshot } },
+    { MODKEY,                       XK_x,     spawn,          {.v = xmodmapreload } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
